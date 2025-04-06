@@ -1,4 +1,5 @@
 from q1_1 import Parse_Docs 
+from q1_3 import get_stop_words
 
 
 def df(col):
@@ -17,9 +18,7 @@ def df(col):
        
     
 if __name__ == "__main__":
-    stopwords_f = open('common-english-words.txt', 'r') 
-    stop_words = stopwords_f.read().split(',')
-    stopwords_f.close()
+    stop_words = get_stop_words()
     
     directory = "RCV1v3/"  # Change this to your target directory
     

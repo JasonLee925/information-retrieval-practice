@@ -3,9 +3,7 @@ from q1_2 import Parse_Q
 import os
 
 def main():
-    stopwords_f = open('common-english-words.txt', 'r') 
-    stop_words = stopwords_f.read().split(',')
-    stopwords_f.close()
+    stop_words = get_stop_words()
 
     directory = "RCV1v3/"  # Change this to your target directory
 
@@ -30,6 +28,11 @@ def main():
             print(Parse_Q(qy, stop_words), file=file)
             print('\r\n', file=file)
 
+def get_stop_words():
+    stopwords_f = open('./common-english-words.txt', 'r') 
+    stop_words = stopwords_f.read().split(',')
+    stopwords_f.close()
+    return stop_words
 
 def remove_file(file_path):
     # Check if the file exists before deleting
