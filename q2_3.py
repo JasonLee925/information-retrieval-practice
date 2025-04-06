@@ -32,16 +32,12 @@ def main():
     docV3s = Parse_Docs(stop_words, "RCV1v3/")
 
     # tf-idf:
-    docs_over_20_terms = []
-    for _, doc in docV3s.items():
-        if len(doc.terms) > 19:
-            docs_over_20_terms.append(doc)
-    
     dfs = df(docV3s)
     with open("shenglee_Q2.txt", "a") as file:           
-        for doc in docs_over_20_terms:
+        for _, doc in docV3s.items():
             print(f'Document: {doc.newsID} contains {len(doc.terms)} terms', file=file)
-            x = tfidf(doc, dfs, len(docs_over_20_terms))
+            x = tfidf(doc, dfs, len(docV3s))
+            x = dict(list(x.items())[:20])
             print(x, file=file)
             
         print("\r\n ===========BOARDER LINE===========", file=file) # no need to pay attention to this :)
