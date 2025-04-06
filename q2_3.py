@@ -1,4 +1,4 @@
-from q1_3 import get_stop_words
+from q1_3 import get_stop_words, remove_file
 from q1_1 import Parse_Docs 
 from q2_1 import df
 from q2_2 import tfidf
@@ -28,6 +28,26 @@ def doc_at_a_time(I, Q):
 
 def main():
     stop_words = get_stop_words()
+    
+    docV3s = Parse_Docs(stop_words, "RCV1v3/")
+
+    # tf-idf:
+    docs_over_20_terms = []
+    for _, doc in docV3s.items():
+        if len(doc.terms) > 19:
+            docs_over_20_terms.append(doc)
+    
+    dfs = df(docV3s)
+    with open("shenglee_Q2.txt", "a") as file:           
+        for doc in docs_over_20_terms:
+            print(f'Document: {doc.newsID} contains {len(doc.terms)} terms', file=file)
+            x = tfidf(doc, dfs, len(docs_over_20_terms))
+            print(x, file=file)
+            
+        print("\r\n ===========BOARDER LINE===========", file=file) # no need to pay attention to this :)
+    
+    
+    # ranking score:
     I = tfidf_matrix_index(stop_words)
     queries = ["USA: Novel Suzuki model so far fails to win audience.", # 80483
                "BELGIUM: MOTOR RACING-LEHTO AND SOPER HOLD ON FOR GT VICTORY.", #741299 
@@ -47,4 +67,5 @@ def main():
     
 
 if __name__ == "__main__":
+    remove_file('shenglee_Q2.txt')
     main()
