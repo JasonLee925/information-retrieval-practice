@@ -1,0 +1,27 @@
+Average document length for this collection is: 357
+The query is: US EPA ranks Geo Metro car most fuel-efficient 1997 car.
+
+Document ID: 741299, Doc Length: 195 -- BM25 Score: 2.612564748837137
+Document ID: 780723, Doc Length: 124 -- BM25 Score: 0.0
+Document ID: 741309, Doc Length: 104 -- BM25 Score: 0.0
+Document ID: 86961, Doc Length: 439 -- BM25 Score: 17.48588246669507
+Document ID: 780718, Doc Length: 107 -- BM25 Score: 0.0
+Document ID: 783803, Doc Length: 490 -- BM25 Score: 1.3032544561880095
+Document ID: 80483, Doc Length: 598 -- BM25 Score: 2.0611668818582434
+Document ID: 809481, Doc Length: 151 -- BM25 Score: 0.0
+Document ID: 809495, Doc Length: 691 -- BM25 Score: 0.0
+Document ID: 80484, Doc Length: 598 -- BM25 Score: 2.0611668818582434
+Document ID: 783802, Doc Length: 118 -- BM25 Score: 0.0
+Document ID: 807600, Doc Length: 530 -- BM25 Score: 0.0
+Document ID: 80884, Doc Length: 598 -- BM25 Score: 2.0611668818582434
+Document ID: 86042, Doc Length: 439 -- BM25 Score: 17.48588246669507
+Document ID: 807606, Doc Length: 183 -- BM25 Score: 0.0
+
+For query "The British-Fashion Awards", the top-5 relevant documents are: 
+[('783802', 11.854119964241645), ('741309', 3.188399633322733), ('783803', 2.311839951492837), ('741299', 0.0), ('780723', 0.0)]
+For query "Rocket attacks", the top-5 relevant documents are: 
+[('809495', 7.849324978838252), ('741299', 0.0), ('780723', 0.0), ('741309', 0.0), ('86961', 0.0)]
+For query "Broadcast Fashion Awards", the top-5 relevant documents are: 
+[('783802', 10.763142090673577), ('783803', 3.9241056846166082), ('741299', 0.0), ('780723', 0.0), ('741309', 0.0)]
+For query "US EPA ranks Geo Metro car most fuel-efficient 1997 car.", the top-5 relevant documents are: 
+[('86961', 17.48588246669507), ('86042', 17.48588246669507), ('741299', 2.612564748837137), ('80483', 2.0611668818582434), ('80484', 2.0611668818582434)]

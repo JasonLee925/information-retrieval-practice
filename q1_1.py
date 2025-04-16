@@ -18,7 +18,7 @@ class DocV3:
         self.terms = list(dict(self.parsed_doc[1]).values())[0]
         self.doc_size = self.parsed_doc[0]
     
-    def __validate_parsed_doc(self, parsed_doc: tuple): # internal use only 
+    def __validate_parsed_doc(self, parsed_doc: tuple): # internal use only: 
         if parsed_doc == None:
             print("Error: the DocV3 is not created due to invalid 'parsed_doc'")
             return
