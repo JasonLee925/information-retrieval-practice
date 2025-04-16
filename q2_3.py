@@ -10,8 +10,8 @@ def tfidf_matrix_index(stop_words, directory = "RCV1v3/"):
     dfs = df(docV3s)
     R= {}
     for _, doc in docV3s.items():
-        val = tfidf(doc, dfs, len(docV3s))
-        R[doc.newsID] = val
+        vals = tfidf(doc, dfs, len(docV3s))
+        R[doc.newsID] = vals
     return R
 
 def doc_at_a_time(I, Q): 
@@ -20,7 +20,7 @@ def doc_at_a_time(I, Q):
         R[i_doc] = 0
         for q_term, q_freq in Q.items():
             if q_term in i_term_vals.keys(): 
-                # A query's term is present in a document
+                # if a query's term is present in a document
                 f = i_term_vals[q_term] 
                 q = q_freq
                 R[i_doc] = R[i_doc] + f * q # the god damn equation
@@ -37,7 +37,7 @@ def main():
         for _, doc in docV3s.items():
             print(f'Document: {doc.newsID} contains {len(doc.terms)} terms', file=file)
             x = tfidf(doc, dfs, len(docV3s))
-            x = dict(list(x.items())[:20])
+            x = dict(list(x.items())[:20]) # print top 20
             print(x, file=file)
             
         print("\r\n ===========BOARDER LINE===========", file=file) # no need to pay attention to this :)
@@ -45,12 +45,12 @@ def main():
     
     # ranking score:
     I = tfidf_matrix_index(stop_words)
-    queries = ["USA: Novel Suzuki model so far fails to win audience.", # 80483
-               "BELGIUM: MOTOR RACING-LEHTO AND SOPER HOLD ON FOR GT VICTORY.", #741299 
+    queries_title = ["US EPA ranks Geo Metro car most fuel-efficient 1997 car.", # 86961
+               "BELGIUM: MOTOR RACING-LEHTO AND SOPER HOLD ON FOR GT VICTORY.", #ß741299 
                "ISRAEL: Israel threatens tough response to rocket attacks." #809495
                ]
     
-    for query in queries:
+    for query in queries_title:
         Q = Parse_Q(query, stop_words)
         R = doc_at_a_time(I, Q)
         ret = dict(sorted(R.items(), key=lambda item: item[1], reverse=True))
