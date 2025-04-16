@@ -20,7 +20,7 @@ def df(col):
 if __name__ == "__main__":
     stop_words = get_stop_words()
     
-    directory = "RCV1v3/"  # Change this to your target directory
+    directory = "RCV1v3/" 
     
     docV3s = Parse_Docs(stop_words, directory)
     dfs = df(docV3s)

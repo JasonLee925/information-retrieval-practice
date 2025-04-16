@@ -4,7 +4,7 @@ from q2_1 import df
 from q2_2 import tfidf
 from q1_2 import Parse_Q
 
-
+# compose the tf-idf metrix
 def tfidf_matrix_index(stop_words, directory = "RCV1v3/"):
     docV3s = Parse_Docs(stop_words, directory)
     dfs = df(docV3s)
@@ -31,9 +31,10 @@ def main():
     
     docV3s = Parse_Docs(stop_words, "RCV1v3/")
 
-    # tf-idf:
+    
     dfs = df(docV3s)
-    with open("shenglee_Q2.txt", "a") as file:           
+    with open("shenglee_Q2.txt", "a") as file:          
+        # tf-idf: 
         for _, doc in docV3s.items():
             print(f'Document: {doc.newsID} contains {len(doc.terms)} terms', file=file)
             x = tfidf(doc, dfs, len(docV3s))

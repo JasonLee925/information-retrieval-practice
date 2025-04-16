@@ -15,7 +15,7 @@ def main():
         avg_len = int(avg_length(docV3s))
         print("Average document length for this collection is: " + str(avg_len), file=file)
         
-        
+        # my_bm25:
         query_text = "US EPA ranks Geo Metro car most fuel-efficient 1997 car." 
         print("The query is: " + query_text, file=file)
         print("", file=file)
@@ -31,7 +31,7 @@ def main():
             
         print("", file=file)
             
-        
+        # ranking score:
         queries = [
             'The British-Fashion Awards',
             'Rocket attacks',
