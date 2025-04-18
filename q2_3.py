@@ -31,17 +31,24 @@ def main():
     
     docV3s = Parse_Docs(stop_words, "RCV1v3/")
 
-    
+    # total terms:
     dfs = df(docV3s)
     with open("shenglee_Q2.txt", "a") as file:          
-        # tf-idf: 
+        print('There are ' +  str(len(docV3s)) + ' documents in this data set and contains ' + str(len(dfs)) + ' terms', file=file)
+        print('The following are the terms’ document-frequency:', file=file)
+        print(dfs, file=file)
+    
+    print("\r\n ===========BOARDER LINE===========", file=file) 
+    
+    # tf-idf: 
+    with open("shenglee_Q2.txt", "a") as file:          
         for _, doc in docV3s.items():
             print(f'Document: {doc.newsID} contains {len(doc.terms)} terms', file=file)
             x = tfidf(doc, dfs, len(docV3s))
             x = dict(list(x.items())[:20]) # print top 20
             print(x, file=file)
             
-        print("\r\n ===========BOARDER LINE===========", file=file) # no need to pay attention to this :)
+        print("\r\n ===========BOARDER LINE===========", file=file) 
     
     
     # ranking score:
