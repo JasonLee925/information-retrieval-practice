@@ -38,7 +38,7 @@ def main():
         print('The following are the terms’ document-frequency:', file=file)
         print(dfs, file=file)
     
-    print("\r\n ===========BOARDER LINE===========", file=file) 
+        print("\r\n ===========BOARDER LINE===========", file=file) 
     
     # tf-idf: 
     with open("shenglee_Q2.txt", "a") as file:          
